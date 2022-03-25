@@ -1,0 +1,32 @@
+<div class = "container">
+  <div class = "row">
+    <h1>商品一覧</h1>
+  </div>
+  <div class = "row">
+    <div class = "col-5 pr-4 border-right">
+      <!--一覧表-->
+      <table class = "table" style = "font-size: 12px">
+        <tr>
+          <th>商品名</th>
+          <th>値段</th>
+          <th>ジャンル</th>
+          <th></th>
+          <th></th>
+        </tr>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.price %></td>
+            <td><%= product.genre %></td>
+            <!--初期データ以外編集・削除可能-->
+            <td><%= "編集" if product.id > 8 %></td>
+            <td><%= "削除" if product.id > 8 %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class = "col-7">
+
+    </div>
+  </div>
+</div>
