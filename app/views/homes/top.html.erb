@@ -2,6 +2,15 @@
   <div class = "row">
     <h1>商品一覧</h1>
   </div>
+  <div class = "row my-3">
+    <div class = "col-12">
+      <%= form_with url: root_path, local: true, method: :get do |f| %>
+        <h5>ジャンルで絞り込む</h5>
+        <%= f.select :genre, @all_genre %>
+        <%= f.submit "取得する" %>
+      <% end %>
+    </div>
+  </div>
   <div class = "row">
     <div class = "col-5 pr-4 border-right">
       <!--一覧表-->
