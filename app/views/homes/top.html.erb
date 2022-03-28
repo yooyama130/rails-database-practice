@@ -6,7 +6,7 @@
     <div class = "col-12">
       <%= form_with url: root_path, local: true, method: :get do |f| %>
         <h5>ジャンルで絞り込む</h5>
-        <%= f.select :genre, @all_genre %>
+        <%= f.select :genre, @all_genre, include_blank: true %>
         <%= f.submit "取得する" %>
       <% end %>
     </div>
@@ -35,7 +35,13 @@
       </table>
     </div>
     <div class = "col-7">
-
+      <!--条件を満たしていればSQL文-->
+      <% if @sql == "sort_genre" %>
+        <p class = "my-2">
+          <%= "SELECT * FROM #{@table_name}" %><br>
+          <%= "WHERE genre = \"#{@genre_keyword}\"" %>  <!--「\"」とすることでダブルクオーテーションを文字列として埋め込める-->
+        </p>
+      <% end %>
     </div>
   </div>
 </div>
